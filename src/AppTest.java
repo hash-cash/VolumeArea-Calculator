@@ -38,7 +38,7 @@ public class AppTest {
     }
 
     @Test
-    public void cylinderAreaCalculation(){
+    public void cylinderVolumeCalculation(){
         assertEquals(235.5, cyl.printVolume(), 0);
     }
 
@@ -73,11 +73,18 @@ public class AppTest {
         assertEquals(0, convTwoD.printAreaConvertedIn(), 0);
     }
 
+    @Test
+    public void negativeThreeDConverting(){
+        convThreeD = new ThreeDConverter(-50);
+        assertEquals(0, convThreeD.printAreaConvertedFt(), 0);
+    }
+
     //Exception Test
     @Test
     public void divideByZero(){
         assertThrows(ArithmeticException.class, () -> {
             rhom = new Rhombus(5, 10, 0);
+            rhom.printArea();
         });
     }
 }
